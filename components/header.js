@@ -34,7 +34,7 @@ class Header extends HTMLElement {
           <nav class="header__nav">
               <ul class="container">
                   <li><a href="history.html" class="p--md">History in the Merrimack River Drainage</a></li>
-                  <li><a href="paleoindian-period.html" class="p--md">Cultural timeline</a></li>
+                  <li><a href="timeline.html" class="p--md">Cultural timeline</a></li>
                   <li><a href="importance-of-sites.html" class="p--md">Importance of Archaeological sites</a></li>
                   <li><a href="finding-and-studying-sites.html" class="p--md">Finding and Studying sites</a></li>
                   <li><a href="learn-more.html" class="p--md">Learn more</a></li>
@@ -44,15 +44,15 @@ class Header extends HTMLElement {
     `;
     this.updateSelectedNavItem();
   }
-  
+
   updateSelectedNavItem() {
     // Remove the 'selected' class from any existing element
-    const existingSelected = this.querySelector('.selected');
+    const existingSelected = this.querySelector('li.selected');
     if (existingSelected) existingSelected.classList.remove('selected');
   
     // Add the 'selected' class to the new selected item
     const newItem = this.querySelector(`a[href="${this._selectedNavItem}"]`);
-    if (newItem) newItem.classList.add('selected');
+    if (newItem) newItem.parentElement.classList.add('selected');
   }
 }
 
