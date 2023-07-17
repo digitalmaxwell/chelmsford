@@ -61,6 +61,14 @@ class Timeline extends HTMLElement {
             this.querySelector('ul').classList.toggle('timeline-open');
         });
 
+        // Add event listeners to li elements
+        this.querySelectorAll('li').forEach(li => {
+            li.addEventListener('click', () => {
+                const link = li.querySelector('a').href;
+                window.location.href = link;
+            });
+        });
+
         this.updateSelectedPeriod();
     }
 
