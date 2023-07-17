@@ -41,8 +41,12 @@ class MediaBlock extends HTMLElement {
                         </div>`
                     : ""}
                     ${this.getProp('image') && this.getProp('imagealt')?
-                        `<div class="mediaBlock__image" ${this.getProp('imagewidth') ? "style='width: " + this.getProp('imagewidth') + ";'" : ""}>
-                                <img src="${this.getProp('image')}" alt="${this.getProp('imagealt')}" />
+                        `<div class="mediaBlock__image">
+                                <img
+                                    src="${this.getProp('image')}"
+                                    alt="${this.getProp('imagealt')}"
+                                    ${this.getProp('imagewidth') ? "style='margin: 0 auto; width: " + this.getProp('imagewidth') + ";'" : ""}
+                                />
                                 ${this.getProp('imagetext') ? `<p class="p--sm">${this.getProp('imagetext')}</p>` : ""}
                         </div>`
                     : ""}

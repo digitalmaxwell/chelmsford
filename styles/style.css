@@ -1,7 +1,11 @@
+/* Global Styles */
+
 html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
     margin:0;
     line-height: 1;
 }
+
+/* Global Classes */
 
 .p--sm-light {
     font-family: proxima-nova, sans-serif;
@@ -24,7 +28,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
+    line-height: 27px;
 }
 
 .p--lg {
@@ -74,8 +78,12 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
 }
 
 .page {
-    margin-top: 60px;
+    margin-top: 25px;
     margin-bottom: 60px;
+}
+
+.page:last-child {
+    padding-bottom: 0;
 }
 
 .textBlock:not(:last-child) {
@@ -83,12 +91,23 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
 }
 
 .textBlock:not(:first-child) {
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .textBlock .p--lg:not(:last-child) {
     margin-bottom: 25px;
+}  
+
+@media (min-width: 900px) {
+    .page {
+        margin-top: 60px;
+    }
+    .textBlock:not(:first-child) {
+        margin-top: 50px;
+    }
 }
+
+/* Header */
 
 .header__nativeAmericans {
     background-color: #800000;
@@ -136,7 +155,17 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
 }
 
 .header__nav li.selected {
-    border-bottom: 5px solid;
+    position: relative;
+}
+
+.header__nav li.selected::after {
+    content: "";
+    display: block;
+    height: 5px;
+    width: 100%;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
 }
 
 .header__nav .selected a {
@@ -148,7 +177,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
     align-items: center;
     cursor: pointer;
     position: relative;
-    height: 80px;
+    height: 75px;
     margin-left: 25px;
     margin-right: 25px;
 }
@@ -204,7 +233,6 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
 
     .header__nav {
         flex-direction: row !important;
-        height: 80px;
     }
 
     .header__nav ul {
@@ -224,6 +252,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
     }
 }
 
+/* Footer  */
 
 .footer {
     background-color: #EEE;
@@ -265,6 +294,8 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
     padding-right: 20px;
 }
 
+/* Media Block  */
+
 .mediaBlock {
     background-color: #EEE;
     padding-top: 35px;
@@ -272,18 +303,23 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
 }
 
 .mediaBlock .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 50px;
 }
 
 .mediaBlock.reverse .container {
-    flex-direction: row-reverse;
+    grid-auto-flow: column-reverse;
 }
 
 .mediaBlock .mediaBlock__text, .mediaBlock .mediaBlock__image {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.mediaBlock__image img {
+    max-width: 100%;
 }
 
 .mediaBlock__image .p--sm {
@@ -293,6 +329,17 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
 
 .mediaBlock .mediaBlock__text .p--lg:not(:last-child) {
     margin-bottom: 25px;
+}
+
+@media (min-width: 1000px) {
+    
+    .mediaBlock .container {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-flow: row;
+    }
+    .mediaBlock.reverse .container {
+        grid-auto-flow: row-reverse;
+    }
 }
 
 /* Options for Media Block with 2 images  */
@@ -312,31 +359,29 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
     justify-content: flex-start;
 }
 
-/* ... */
-
-.page:last-child {
-    padding-bottom: 0;
-}
+/* Timeline */
 
 .timeline {
-    margin-top: 19.5px;
+    border-bottom: 1px solid #ccc;
 }
 
 .timeline hr {
-    border: none;
-    height: .5px;
-    background-color: #000;
-    margin: 0;
-    width: calc(100% - 150px);
-    margin: auto;
-    margin-bottom: -19.5px;
+    display: none;
 }
 
 .timeline ul {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 0;
     list-style: none;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.timeline ul.timeline-open {
+    max-height: 1000px;
+    transition: max-height 0.2s ease-out;
 }
 
 .timeline a {
@@ -351,35 +396,103 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a {
 .timeline li {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-width: 149px;
+    align-items: flex-start;
     text-align: center;
     cursor: pointer;
     position: relative;
+    text-align: left;
+    width: 100%;
+    padding-bottom: 25px;
 }
 
-.timeline li::before {
-    content: "";
-    display: inline-block;
-    box-sizing: border-box;
-    width: 39px;
-    height: 39px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39"><circle cx="19.5" cy="19.5" r="19.25" fill="%23FFFFFF" /><circle cx="19.5" cy="19.5" r="19.25" fill="transparent" stroke="black" stroke-width="0.5" /><circle cx="19.5" cy="19.5" r="6.5" fill="%23800000" /></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+.timeline li:not(:last-child) {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #000;
 }
 
-.timeline li:hover::before, .timeline .selected::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39"><circle cx="19.5" cy="19.5" r="19.25" fill="%23800000" /><circle cx="19.5" cy="19.5" r="19.25" fill="transparent" stroke="black" stroke-width="0.5" /><circle cx="19.5" cy="19.5" r="6.5" fill="%23FFFFFF" /></svg>');
-}
-
-.timeline li:hover a, .timeline .selected a {
+.timeline li.selected a {
     text-decoration: underline;
 }
 
-@media (max-width: 1000px) {
-    .mediaBlock .container, .mediaBlock.reverse .container{
-        flex-direction: column;
+.timeline li::before {
+    display: none;
+}
+
+.timeline__toggle-button {
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.timeline__toggle-button .chevron {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    transform: rotate(135deg);
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.timeline__toggle-button.active .chevron {
+    transform: rotate(-45deg);
+    margin-top: 10px;
+
+}
+
+@media (min-width: 900px) {
+    .timeline {
+        margin-top: 19.5px;
+        margin-bottom: -19.5px;
+        background: none;
+        border: none;
+    }
+
+    .timeline hr {
+        display: block;
+        border: none;
+        height: .5px;
+        background-color: #000;
+        margin: 0;
+        width: calc(100% - 150px);
+        margin: auto;
+        margin-bottom: -19.5px;
+    }
+
+    .timeline__toggle-button {
+        display: none;
+    }
+
+    .timeline ul {
+        flex-direction: row;
+        justify-content: space-between;
+        max-height: none !important;
+    }
+
+    .timeline li {
+        align-items: center;
+        max-width: 149px;
+        margin-bottom: 0px;
+        border: none;
+        text-align: center;
+    }
+
+    .timeline li:not(:last-child) {
+        border: none;
+        margin: 0;
+    }
+
+    .timeline li::before {
+        display: inline-block;
+        content: "";
+        box-sizing: border-box;
+        width: 39px;
+        height: 39px;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39"><circle cx="19.5" cy="19.5" r="19.25" fill="%23FFFFFF" /><circle cx="19.5" cy="19.5" r="19.25" fill="transparent" stroke="black" stroke-width="0.5" /><circle cx="19.5" cy="19.5" r="6.5" fill="%23800000" /></svg>');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
     }
 }

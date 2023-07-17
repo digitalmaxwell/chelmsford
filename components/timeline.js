@@ -1,31 +1,34 @@
 class Timeline extends HTMLElement {
     constructor() {
-      super();
-      this._selectedPeriod = null;
+        super();
+        this._selectedPeriod = null;
     }
-  
+
     static get observedAttributes() {
-      return ['selected-period'];
+        return ['selected-period'];
     }
-  
+
     attributeChangedCallback(name, oldValue, newValue) {
-      if (name === 'selected-period') {
-        this.selectedPeriod = newValue;
-      }
+        if (name === 'selected-period') {
+            this.selectedPeriod = newValue;
+        }
     }
-  
+
     get selectedPeriod() {
-      return this._selectedPeriod;
+        return this._selectedPeriod;
     }
-  
+
     set selectedPeriod(value) {
-      this._selectedPeriod = value;
-    //   this.updateSelectedPeriod();
+        this._selectedPeriod = value;
     }
-  
+
     connectedCallback() {
-      this.innerHTML = `
+        this.innerHTML = `
         <div class="timeline container">
+            <div class="timeline__toggle-button">
+                <span class="p--md">Timeline</span>
+                <span class="chevron"></span>
+            </div>
             <hr/>
             <ul>
                 <li>
@@ -50,11 +53,17 @@ class Timeline extends HTMLElement {
                 </li>
             </ul>
         </div>
+        `;
 
-      `;
-      this.updateSelectedPeriod();
+        // timeline toggle button functionality
+        this.querySelector('.timeline__toggle-button').addEventListener('click', () => {
+            this.querySelector('.timeline__toggle-button').classList.toggle('active');
+            this.querySelector('ul').classList.toggle('timeline-open');
+        });
+
+        this.updateSelectedPeriod();
     }
-  
+
     updateSelectedPeriod() {
         if (this._selectedPeriod) {
             // Remove the 'selected' class from any existing element
@@ -66,6 +75,6 @@ class Timeline extends HTMLElement {
             if (newItem) newItem.parentElement.classList.add('selected');
         }
     }
-  }
-  
-  customElements.define('timeline-component', Timeline);
+}
+
+customElements.define('timeline-component', Timeline);
