@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Timeline | PaleoIndian Period</title>
@@ -9,29 +10,30 @@
         <script src="components/timeline.js" type="text/javascript" defer></script>
         <script src="components/mediaBlock.js" type="text/javascript" defer></script>
     </head>
-    <header-component selected-nav-item="timeline.html"></header-component>
-    <div class="page">
-        <timeline-component selected-period="paleoindian-period.html"></timeline-component>
-        <div class="textBlock container">
-            <h1 class="heading1">PaleoIndian Period (12,900-10,000 years ago)</h1>
-            <p class="p--lg">
-                Archaeologists are beginning to learn that the North and South American continents were occupied far earlier than once believed, about 15,000 years ago. The Northeast was probably the last area of the continent to be explored, probably due to the presence of mile-high glacial ice that receded here about 13,000 years ago and opened up this region to intrepid explorers and first settlers. The earliest evidence of humans living in the Northeast dates to what archaeologists refer to as the PaleoIndian Period. Small groups of people hunted caribou and smaller animals. They also ate plants and probably fish. Sometimes larger groups would gather. One such gathering place in the Northeast was the famous Bull Brook site in what is now Ipswich.            
-            </p>
-            <p class="p--lg">
-                These earliest peoples used spears tipped with large and small stone projectile points to hunt. They also used scraping, engraving, and drilling tools made from special types of stone from bedrock sources hundreds of miles away in what is now Pennsylvania, New York, Vermont, New Hampshire, Maine, Southern Ontario, Quebec, and the Maritime provinces of Canada. They probably used some kind of watercraft to travel such long distances and formed relationships with people who lived in those far-away areas.
-            </p>
-            <p class="p--lg">
-                Most of the fragile items that people made in PaleoIndian times, including the remains of what they hunted and gathered for food, shelter, clothing, and containers have not survived. As a result, archaeologists do not have as much evidence to understand the lives and rich, complex cultural practices of PaleoIndian peoples. No artifacts from that time have been found in Chelmsford. However, archaeologists have found projectile points related to the earliest known period of human occupations in many other places throughout the lower Merrimack River drainage.
-            </p>
-        </div>
-        <mediablock-component
-            image="images/point-types.png"
-            imagealt="Arrowhead point types timeline"
-            header="Projectile Points"
-            body="Archaeologists learn the age of projectile points by comparing shapes and sizes with others and by using radiocarbon dating of organic remains (such as wood charcoal, shell, or bone) found with the points. The point styles or types found in the Northeast indicate that indigenous peoples were in the area as early as 12,900 years ago."
-            subtext="Image credit: Bulletin of the Archaeological Society of Connecticut, 1984."
-        ></mediablock-component>
-    </div>
-    
-    <footer-component></footer-component>
+    <body>
+        <header-component selected-nav-item="timeline.html"></header-component>
+        <main>
+            <timeline-component selected-period="paleoindian-period.html"></timeline-component>
+            <div class="textBlock container">
+                <h1 class="heading1">PaleoIndian Period (12,900&dash;10,000 years ago)</h1>
+                <p class="p--lg">
+                    Archaeologists are beginning to learn that the North and South American continents were occupied far earlier than once believed, about 15,000 years ago. The Northeast was probably the last area of the continent to be explored, probably due to the presence of mile-high glacial ice that receded here about 13,000 years ago and opened up this region to intrepid explorers and first settlers. The earliest evidence of humans living in the Northeast dates to what archaeologists refer to as the PaleoIndian Period. Small groups of people hunted caribou and smaller animals. They also ate plants and probably fish. Sometimes larger groups would gather. One such gathering place in the Northeast was the famous Bull Brook site in what is now Ipswich.            
+                </p>
+                <p class="p--lg">
+                    These earliest peoples used spears tipped with large and small stone <i>projectile points</i> to hunt. They also used scraping, engraving, and drilling tools made from special types of stone from bedrock sources hundreds of miles away in what is now Pennsylvania, New York, Vermont, New Hampshire, Maine, Southern Ontario, Quebec, and the Maritime provinces of Canada. They probably used some kind of watercraft to travel such long distances and formed relationships with people who lived in those far-away areas.
+                </p>
+                <p class="p--lg">
+                    Most of the fragile items that people made in PaleoIndian times, including the remains of what they hunted and gathered for food, shelter, clothing, and containers have not survived. As a result, archaeologists do not have as much evidence to understand the lives and rich, complex cultural practices of PaleoIndian peoples. No artifacts from that time have been found in Chelmsford. However, archaeologists have found projectile points related to the earliest known period of human occupations in many other places throughout the lower Merrimack River drainage.
+                </p>
+            </div>
+            <mediablock-component
+                image="images/point-types.png"
+                imagealt="Arrowhead point types timeline"
+                header="Projectile Points"
+                body="Archaeologists learn the age of projectile points by comparing shapes and sizes with others and by using radiocarbon dating of organic remains (such as wood charcoal, shell, or bone) found with the points. The point styles or types found in the Northeast indicate that indigenous peoples were in the area as early as 12,900 years ago."
+                subtext="Image credit: Bulletin of the Archaeological Society of Connecticut, 1984."
+            ></mediablock-component>
+        </main>
+        <footer-component></footer-component>
+    </body>
 </html>

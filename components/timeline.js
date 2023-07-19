@@ -33,23 +33,23 @@ class Timeline extends HTMLElement {
             <ul>
                 <li>
                     <a href="paleoindian-period.html" class="p--sm">PaleoIndian Period</a>
-                    <span class="p--sm-light">12,900-10,000<br/>years ago</span>
+                    <span class="p--sm-light">12,900&ndash;10,000<br/>years ago</span>
                 </li>
                 <li>
                     <a href="archaic-periods.html" class="p--sm">Early, Middle & Late Archaic Periods</a>
-                    <span class="p--sm-light">10,000-2,500<br/>years ago</span>
+                    <span class="p--sm-light">10,000&ndash;2,500<br/>years ago</span>
                 </li>
                 <li>
                     <a href="transitional-archaic-period.html" class="p--sm">Transitional Archaic Period</a>
-                    <span class="p--sm-light">3,600-2,500<br/>years ago</span>
+                    <span class="p--sm-light">3,600&ndash;2,500<br/>years ago</span>
                 </li>
                 <li>
                     <a href="woodland-periods.html" class="p--sm">Early, Middle & Late Woodland Periods</a>
-                    <span class="p--sm-light">3,000-450<br/>years ago</span>
+                    <span class="p--sm-light">3,000&ndash;450<br/>years ago</span>
                 </li>
                 <li>
                     <a href="historical-period.html" class="p--sm">Historical Period</a>
-                    <span class="p--sm-light">1500<br/>AD-Present</span>
+                    <span class="p--sm-light">1500 AD&ndash;<br/>Present</span>
                 </li>
             </ul>
         </div>
