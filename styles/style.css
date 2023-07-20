@@ -342,7 +342,7 @@ main {
 .mediaBlock .container {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 50px;
+    grid-gap: 50px;
 }
 
 .mediaBlock.reverse .container {
@@ -368,10 +368,10 @@ main {
     margin-bottom: 25px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1200px) {
     .mediaBlock .container {
-        grid-template-columns: 1fr 1fr;
-        grid-auto-flow: row;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     }
     .mediaBlock.reverse .container {
         grid-auto-flow: row-reverse;
