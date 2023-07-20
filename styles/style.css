@@ -17,6 +17,10 @@ main {
     margin-bottom: 60px;
 }
 
+main .mediaBlock:last-child, main .textBlock:last-child {
+    margin-bottom: 0 !important;
+}
+
 @media (min-width: 900px) {
     main {
         margin-top: 60px;
