@@ -7,7 +7,7 @@ class MediaBlock extends HTMLElement {
     static get observedAttributes() {
         return [
             'image', 'imagealt', 'imagetext', 'image2', 'image2alt', 'image2text', 'textwidth', 'imagewidth', 'image2width',
-            'header', 'body', 'body2', 'subtext', 'reverse'
+            'header', 'body', 'body2', 'subtext', 'subtext2', 'reverse'
         ];
     }
 
@@ -45,6 +45,8 @@ class MediaBlock extends HTMLElement {
                                 ${this.getProp('body') ? `<p class="p--lg">${this.getProp('body')}</p>` : ''}
                                 ${this.getProp('body2') ? `<p class="p--lg">${this.getProp('body2')}</p>` : ''}
                                 ${this.getProp('subtext') ? `<p class="p--sm">${this.getProp('subtext')}</p>` : ''}
+                                ${this.getProp('subtext2') ? `<p class="p--sm">${this.getProp('subtext2')}</p>` : ''}
+
                             </div>`
                             : ''
                     }
