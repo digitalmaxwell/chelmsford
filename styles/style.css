@@ -105,7 +105,7 @@ main {
 }
 
 .textBlock:first-child {
-    margin-top: 0;
+    margin-top: 0 !important;
 }
 
 .textBlock .p--lg:not(:last-child) {
@@ -366,6 +366,13 @@ main {
 
 .mediaBlock .mediaBlock__text .p--lg:not(:last-child) {
     margin-bottom: 25px;
+}
+
+@media (max-width: 1200px) {
+    .mediaBlock .mediaBlock__text, .mediaBlock .mediaBlock__image {
+        grid-column: span 1 !important;
+    }
+
 }
 
 @media (min-width: 1200px) {
